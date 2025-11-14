@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Portal</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 0; }
+        nav { background: #333; padding: 10px; }
+        nav a { color: white; margin-right: 20px; text-decoration: none; }
+        section { padding: 20px; display: none; }
+        h2 { color: #333; }
+        .visible { display: block; }
+        input { padding: 8px; margin: 5px 0; width: 250px; }
+        button { padding: 8px 12px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" onclick="show('home')">Home</a>
+    <a href="#" onclick="show('products')">Products</a>
+    <a href="#" onclick="show('contact')">Contact Us</a>
+    <a href="#" onclick="show('about')">About Us</a>
+    <a href="#" onclick="show('register')">Register</a>
+    <a href="#" onclick="show('login')">Login</a>
+    <a href="#" onclick="show('orders')">Orders</a>
+    <a href="#" onclick="show('wishlist')">Wishlist</a>
+    <a href="#" onclick="show('reviews')">Reviews</a>
+    <a href="#" onclick="show('care')">Customer Care</a>
+    <a href="#" onclick="show('report')">Report</a>
+</nav>
+
+<section id="home" class="visible">
+    <h2>Welcome to the E-Commerce Portal</h2>
+</section>
+
+<section id="products">
+    <h2>Product Items</h2>
+    <p>• Phone<br>• Laptop<br>• Headphones<br>• Smartwatch</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: sathyarepairs@shop.com</p>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>This is a demo E-Commerce portal created for assignment.</p>
+</section>
+
+<section id="register">
+    <h2>User Registration</h2>
+    <input id="regName" placeholder="Name"><br>
+    <input id="regEmail" placeholder="Email"><br>
+    <input id="regPass" type="password" placeholder="Password"><br>
+    <button onclick="register()">Register</button>
+    <p id="regMsg"></p>
+</section>
+
+<section id="login">
+    <h2>Login</h2>
+    <input id="logEmail" placeholder="Email"><br>
+    <input id="logPass" type="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p id="logMsg"></p>
+</section>
+
+<section id="orders">
+    <h2>Your Orders</h2>
+    <p>• Order 1: Wireless Mouse<br>• Order 2: Keyboard</p>
+</section>
+
+<section id="wishlist">
+    <h2>Your Wishlist</h2>
+    <p>• iPhone<br>• Gaming Laptop</p>
+</section>
+
+<section id="reviews">
+    <h2>Comments & Reviews</h2>
+    <p>• Great products!<br>• Fast delivery.</p>
+</section>
+
+<section id="care">
+    <h2>Customer Care</h2>
+    <p>24/7 Support Available</p>
+</section>
+
+<section id="report">
+    <h2>Report an Issue</h2>
+    <p>Please email sathya@shop.com</p>
+</section>
+
+<script>
+function show(page) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('visible'));
+    document.getElementById(page).classList.add('visible');
+}
+
+function register() {
+    let name = document.getElementById("regName").value;
+    let email = document.getElementById("regEmail").value;
+    let pass = document.getElementById("regPass").value;
+
+    if (name === "" || email === "" || pass === "") {
+        document.getElementById("regMsg").innerHTML = "❌ Please fill all fields";
+    } else {
+        document.getElementById("regMsg").innerHTML = "✅ Registered Successfully!";
+    }
+}
+
+function login() {
+    let email = document.getElementById("logEmail").value;
+    let pass = document.getElementById("logPass").value;
+
+    if (email === "" || pass === "") {
+        document.getElementById("logMsg").innerHTML = "❌ Please enter email and password";
+    } else {
+        document.getElementById("logMsg").innerHTML = "✅ Login Successful!";
+    }
+}
+</script>
+
+</body>
+</html>
